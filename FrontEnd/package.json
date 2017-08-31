@@ -48,15 +48,23 @@
       "backend": "../BackEnd/public"
     }
   },
-  "homepage": "https://html5boilerplate.com/",
+  "homepage": "https://github.com/zkjs/code-verify",
   "license": "MIT",
-  "name": "html5-boilerplate",
+  "name": "solidity check",
   "scripts": {
     "build": "gulp build",
     "test": "gulp archive && mocha --compilers js:babel-register --reporter spec --timeout 5000"
   },
+  "author": "finch",
+  "maintainers": [
+    {
+      "name": "finch",
+      "email": "zheng0777@gmail.com",
+      "web": "zhengyan.tech"
+    }
+  ],
   "version": "6.0.0",
-  "description": "A professional front-end template for building fast, robust, and adaptable web apps or sites.",
+  "description": "A front-end website to check etherum solidity website",
   "files": [
     "CHANGELOG.md",
     "LICENSE.txt",
@@ -67,7 +75,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/h5bp/html5-boilerplate.git"
+    "url": "https://github.com/zkjs/code-verify.git"
   },
   "dependencies": {
     "animate.css": "^3.5.2"
