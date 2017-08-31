@@ -8,20 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="manifest" href="site.webmanifest">
-    <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="icon.ico">
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <!-- Plicon.png.ico in the root directory -->
 
-
-    <link rel="stylesheet" href="css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="../../FrontEnd/node_modules/animate.css/animate.min.css">
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/lib/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/wow.js"></script>
     <script>
         new WOW().init();
     </script>
     <script src="js/codemirror.js"></script>
-    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="css/lib/codemirror.css">
     <script src="js/mode/javascript/javascript.js"></script>
 </head>
 <body>
@@ -35,8 +36,8 @@
     <header>
         <div class="header_inner clearfix">
             <div id="logo" class="wow fadeInLeft" data-wow-delay="0.1s">
-                <a href="./" title="Securify Ethereum Smart Contract Security Checker">
-                    <img src="./img/logo.svg" alt="Security" style="height: 60px">
+                <a href="../../FrontEnd/src" title="Securify Ethereum Smart Contract Security Checker">
+                    <img src="img/logo_h40.png" alt="Security" style="height: 40px">
                 </a>
             </div>
 
@@ -69,7 +70,7 @@
                                 <textarea name="code-solidity" id="code-solidity" cols="120" rows="16"></textarea>
                             </div>
                             <div id="code-bytecode-wrapper" style="display: none">
-                                <textarea name="code-bytecode" id="code-bytecode" cols="120" rows="16" ></textarea>
+                                <textarea name="code-bytecode" id="code-bytecode" cols="120" rows="16"></textarea>
                             </div>
 
                         </div>
@@ -79,7 +80,10 @@
                         <p id="tos_btn">By using Securify, you accept the Terms of Service.</p>
                     </div>
 
-                    <div id="loading_main"></div>
+                    <div class="alert alert-danger alert-dismissible" style="display: none" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <strong>UnKonw Error!</strong>
+                    </div>
                 </form>
             </div>
         </div>
@@ -99,7 +103,7 @@
                         <div id="analysis_results">
                             <div id="pattern_table">
                                 <div class="pattern_category">
-                                    <img class="pattern_category_logo" src="./img/freepik-arrows.svg" alt="">
+                                    <img class="pattern_category_logo" src="img/freepik-arrows.svg" alt="">
                                     <div class="clearfix">
                                         <h4>Callstack</h4>
                                         <div class="pattern_result">
@@ -120,7 +124,7 @@
                                     </div>
                                 </div>
                                 <div class="pattern_category">
-                                    <img class="pattern_category_logo" src="./img/freepik-bug.svg" alt="">
+                                    <img class="pattern_category_logo" src="img/freepik-bug.svg" alt="">
                                     <div class="clearfix">
                                         <h4>Concurrency</h4>
                                         <div class="pattern_result">
@@ -141,7 +145,7 @@
                                     </div>
                                 </div>
                                 <div class="pattern_category">
-                                    <img class="pattern_category_logo" src="./img/freepik-filter.svg" alt="">
+                                    <img class="pattern_category_logo" src="img/freepik-filter.svg" alt="">
                                     <div class="clearfix">
                                         <h4>Reentrancy</h4>
                                         <div class="pattern_result">
@@ -162,7 +166,7 @@
                                     </div>
                                 </div>
                                 <div class="pattern_category">
-                                    <img class="pattern_category_logo" src="./img/freepik-refresh.svg" alt="">
+                                    <img class="pattern_category_logo" src="img/freepik-refresh.svg" alt="">
                                     <div class="clearfix">
                                         <h4>TimeDependency</h4>
                                         <div class="pattern_result">
@@ -194,7 +198,7 @@
     <footer>
         <div id="footer_inner" class="clearfix">
             <div class="location clearfix">
-                <div class="address">Software Reliability Lab</div>
+                <div class="address">Chieftin Lab</div>
             </div>
             <div class="fineprint clearfix">
                 <div class="copyright">
@@ -213,17 +217,17 @@
 
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
-    var solity = document.getElementById("code-solidity");
+    var solidity = document.getElementById("code-solidity");
     var bytecode = document.getElementById("code-bytecode");
 
-    var cm = CodeMirror.fromTextArea(solity, {
-        value: "input your solidity",
+    var cm = CodeMirror.fromTextArea(solidity, {
+        value: "Input Your Smart Contract",
         mode: "javascript",
         lineNumbers: true,
     });
 
     var bytearea = CodeMirror.fromTextArea(bytecode, {
-        value: "input your bytecode",
+        value: "Input Your ByteCode",
         mode: "javascript",
         lineNumbers: false,
     });

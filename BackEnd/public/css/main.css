@@ -1,7 +1,5 @@
 /*! HTML5 Boilerplate v6.0.0 | MIT License | https://html5boilerplate.com/ */
 
-/*! HTML5 Boilerplate v6.0.0 | MIT License | https://html5boilerplate.com/ */
-
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -99,22 +97,17 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weight: 400; font-size: 20px; line-height: 30px;
-    color: #ffffff; text-align: center; letter-spacing: 0.5px; background: #ffffff; }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+body {
+    font-family: 'Raleway', Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 0.5px;
+    background: #ffffff;
+}
 
 /* ==========================================================================
    Helper classes
@@ -210,9 +203,9 @@ body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weigh
 }
 
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -227,8 +220,9 @@ body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weigh
     *:before,
     *:after {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
-                                   http://www.sanbeiji.com/archives/953 */
+        color: #000 !important;
+        /* Black prints faster:
+                                          http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
     }
@@ -250,7 +244,6 @@ body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weigh
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-
     a[href^="#"]:after,
     a[href^="javascript:"]:after {
         content: "";
@@ -259,6 +252,7 @@ body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weigh
     pre {
         white-space: pre-wrap !important;
     }
+
     pre,
     blockquote {
         border: 1px solid #999;
@@ -269,7 +263,6 @@ body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weigh
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-
     thead {
         display: table-header-group;
     }
@@ -292,7 +285,7 @@ body { font-family: 'Raleway', Arial, sans-serif; font-style: normal; font-weigh
     }
 }
 
-header .header_inner{
+header .header_inner {
     width: 1000px;
     min-width: 1000px;
     position: relative;
@@ -301,34 +294,22 @@ header .header_inner{
     color: #333333;
 }
 
-header{
+header {
     width: 100%;
     min-width: 1000px;
     text-align: center;
-    background-color: #1A2539;
-    background-image: url("../img/bg.jpg");
+    background: linear-gradient(45deg, #130c31, #40284c);
     background-size: 120% 180%;
     background-position: left bottom;
 }
 
-header .header_inner .trim{
-    width: 0;
-    height: 0;
-     border-style: solid;
-    border-width: 26px 26px 0 26px;
-    border-color: #1A2539 transparent transparent transparent;
-    position: absolute;
-    bottom: -25px;
-    left: 0;
-}
-
-#logo{
+#logo {
     width: auto;
     float: left;
     margin-bottom: 20px;
 }
 
-.intro_text{
+.intro_text {
     width: 892px;
     clear: both;
     margin-top: 30px;
@@ -336,7 +317,7 @@ header .header_inner .trim{
     float: left;
 }
 
-.intro_text h1{
+.intro_text h1 {
     color: #ffffff;
     font-weight: 800;
     font-size: 35px;
@@ -345,7 +326,7 @@ header .header_inner .trim{
     margin-bottom: 30px;
 }
 
-.intro_text h3{
+.intro_text h3 {
     color: #ffffff;
     font-weight: 400;
     font-size: 20px;
@@ -353,7 +334,7 @@ header .header_inner .trim{
     letter-spacing: 0.5px;
 }
 
-footer #footer_inner{
+footer #footer_inner {
     width: 1000px;
     margin: 0 auto;
     padding-top: 86px;
@@ -362,33 +343,34 @@ footer #footer_inner{
     font-size: 12px;
     line-height: 20px;
     font-weight: 700;
-    color:#8C95A2;
+    color: #8C95A2;
 }
-footer .location{
+
+footer .location {
     width: auto;
     float: left;
 }
 
-footer .location .address{
+footer .location .address {
     float: left;
 }
 
-footer .fineprint .copyright{
+footer .fineprint .copyright {
     float: right;
 }
 
-#submission_error{
+#submission_error {
     color: #f44242;
     text-align: center;
     margin: 50px 5px 20px 5px;
 }
 
-#submission_error h3{
+#submission_error h3 {
     font-size: 18px;
     line-height: 24px;
 }
 
-#submission_error_message{
+#submission_error_message {
     font-size: 16px;
     line-height: 20px;
     display: inline-block;
@@ -396,7 +378,7 @@ footer .fineprint .copyright{
     white-space: pre-wrap;
 }
 
-#tos_btn{
+#tos_btn {
     display: inline-block;
     border: 0;
     font-weight: 900;
@@ -410,7 +392,7 @@ footer .fineprint .copyright{
     line-height: 12px;
 }
 
-#analysis_start{
+#analysis_start {
     display: block;
     border: 0;
     border-radius: 6px;
@@ -419,40 +401,41 @@ footer .fineprint .copyright{
     margin: 20px auto 10px auto;
     letter-spacing: 1px;
     color: #ffffff;
-    background: #A79DCC;
+    background: rgb(58, 32, 68);
     font-size: 24px;
     line-height: 24px;
 }
 
-#analysis_start:hover{
+#analysis_start:hover {
     color: #6D6685;
-    transition:all 0.1s linear;
+    transition: all 0.1s linear;
 }
 
-.code_form_header{
-    background-color: #6D6685;
+.code_form_header {
+    background-color: rgb(58, 32, 68);
     padding: 8px 15px;
     color: white;
     vertical-align: middle;
 }
 
-.code_form_title{
+.code_form_title {
     float: left;
     margin: 2px 0;
 }
 
-section .content_block{
+section .content_block {
     width: 1000px;
     margin: 0 auto;
     text-align: center;
 }
-section#content_upload .content_inner{
+
+section#content_upload .content_inner {
     color: #2f61ad;
     padding-top: 70px;
     padding-bottom: 30px;
 }
 
-section .content_inner{
+section .content_inner {
     width: 100%;
     margin: 0 auto;
     padding: 60px 0;
@@ -460,15 +443,15 @@ section .content_inner{
     position: relative;
 }
 
-#analysis_results .status.safe{
+#analysis_results .status.safe {
     background-image: url("../img/checkmark.png");
 }
 
-#analysis_results .status.matched{
+#analysis_results .status.matched {
     background-image: url("../img/crossmark.png");
 }
 
-#analysis_results .status{
+#analysis_results .status {
     display: inline-block;
     margin: 5px 10px 5px 0px;
     width: 20px;
@@ -481,21 +464,19 @@ section .content_inner{
     cursor: help;
 }
 
-#content_analysis{
+#content_analysis {
     background-color: #414463;
     background-image: url("../img/bg-small.jpg");
     background-size: 100% 100%;
     letter-spacing: 0;
 }
 
-#analysis_result_wrapper{
+#analysis_result_wrapper {
     margin: 0 20px 0 0;
-    -webkit-box-flex:2;
-    -ms-flex:2 0 360px;
-    flex:2 0 360px;
+    flex: 2 0 360px;
 }
 
-.content_reg h3{
+.content_reg h3 {
     font-size: 18px;
     line-height: 24px;
     font-weight: 400;
@@ -503,21 +484,19 @@ section .content_inner{
     color: #8C95A2;
     letter-spacing: 0.5px;
 }
-#analysis_results{
+
+#analysis_results {
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
-    margin:20px 0 0 0;
+    margin: 20px 0 0 0;
 }
 
-#pattern_table{
-    -webkit-columns: 480px 2;
+#pattern_table {
     columns: 480px 2;
 }
 
-.pattern_category{
-    display: -webkit-box;
-    display: -ms-flexbox;
+.pattern_category {
     display: flex;
     width: 100%;
     text-align: left;
@@ -525,31 +504,31 @@ section .content_inner{
     page-break-inside: avoid;
 }
 
-.pattern_category_logo{
-    -webkit-box-flex: 0;
-    -ms-flex: none;
+.pattern_category_logo {
     flex: none;
     width: 70px;
     height: 60px;
     margin-right: 20px;
 }
-.pattern_category table{
+
+.pattern_category table {
     width: 100%;
     border-collapse: collapse;
 }
 
-.pattern_category table td:nth-child(1){
+.pattern_category table td:nth-child(1) {
     width: 30px;
 }
 
-.pattern_category table td:nth-child(3){
+.pattern_category table td:nth-child(3) {
     width: 55px;
 }
-.pattern_category table td:nth-child(4){
+
+.pattern_category table td:nth-child(4) {
     width: 50px;
 }
 
-.pattern_info{
+.pattern_info {
     font-size: 14px;
     margin: 0px 0px 0px 5px;
     padding: 2px 4px;
@@ -558,9 +537,9 @@ section .content_inner{
     color: #60d3f0;
 }
 
-.code_form_toggles{
+.code_form_toggles {
     float: right;
-    margin:2px -6px 2px 2px;
+    margin: 2px -6px 2px 2px;
 }
 
 
