@@ -15,6 +15,8 @@ npm run build
 ```
 that's all. Html5 file will be found in dist file.
 
+### Delopy
+
 BackEnd is build by node.js
 
 First copy all files under dist from FrontEnd to BackEnd'public file
