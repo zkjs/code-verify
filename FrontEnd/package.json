@@ -63,6 +63,9 @@
       "web": "zhengyan.tech"
     }
   ],
+  "contributors": [{
+    "name": "finch"
+  }],
   "version": "6.0.0",
   "description": "A front-end website to check etherum solidity website",
   "files": [
