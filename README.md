@@ -1,4 +1,4 @@
-# code-verify
+# Code-Verify
 
 Code-verify is a  website that used to check etherum's solidity
 
@@ -14,6 +14,8 @@ npm install
 npm run build 
 ```
 that's all. Html5 file will be found in dist file.
+
+### Delopy
 
 BackEnd is build by node.js
 
