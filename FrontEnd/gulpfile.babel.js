@@ -216,7 +216,7 @@ gulp.task('archive', (done) => {
 gulp.task('build', (done) => {
     runSequence(
         ['clean', 'lint:js'],
-        'copy', 'compress','cssAutoFix', 'modernizr',
+        'copy', 'compress', 'modernizr',
         done)
 });
 

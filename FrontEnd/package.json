@@ -50,7 +50,7 @@
   },
   "homepage": "https://github.com/zkjs/code-verify",
   "license": "MIT",
-  "name": "solidity check",
+  "name": "solidity-check",
   "scripts": {
     "build": "gulp build",
     "test": "gulp archive && mocha --compilers js:babel-register --reporter spec --timeout 5000"
