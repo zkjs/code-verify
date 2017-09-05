@@ -1,0 +1,310 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Code Verify</title>
+  <meta name="description" content="code verify">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/lib/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="js/wow.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script src="js/codemirror.js"></script>
+  <link rel="stylesheet" href="css/lib/codemirror.css">
+  <script src="js/mode/javascript/javascript.js"></script>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade
+  your browser</a> to improve your experience and security.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div class="wrapper">
+  <header>
+    <div class="header_inner clearfix">
+      <div id="logo" class="wow fadeInLeft" data-wow-delay="0.1s">
+        <a href="./" title="Securify Ethereum Smart Contract Security Checker">
+          <img src="./img/logo_h40.png" alt="Security" style="height: 41px">
+        </a>
+      </div>
+
+      <div class="intro_text">
+        <h1 class="wow fadeInUp" data-wow-delay="0.3s">Formal Verification of Ethereum Smart Contracts</h1>
+        <h3 class="wow fadeInUp" data-wow-delay="0.6s">
+          Analyse any contract for critical security vulnerabilities and insecure coding.
+          <br>
+          One click only. Formal security guarantees. Accepts source. Extensible.
+        </h3>
+      </div>
+    </div>
+  </header>
+</div>
+
+<section class="content_wrap" id="content_upload">
+  <div class="content_block">
+    <div class="content_inner clearfix">
+      <form id="checkform">
+        <div class="code_form_header clearfix">
+          <div class="code_form_title">Enter Contract</div>
+          <div class="code_form_toggles">
+            <button type="button" class="btn btn-default" id="btn-solidity">Solidity</button>
+            <button type="button" class="btn btn-default" id="btn-bytecode">Bytecode</button>
+          </div>
+        </div>
+        <div class="codeholder">
+          <div id="code_solidity">
+            <div id="code-solidity-wrapper">
+              <textarea name="code-solidity" id="code-solidity" cols="120" rows="16"></textarea>
+            </div>
+            <div id="code-bytecode-wrapper" style="display: none">
+              <textarea name="code-bytecode" id="code-bytecode" cols="120" rows="16"></textarea>
+            </div>
+
+          </div>
+        </div>
+        <input type="button" id="analysis_start" value="Formally Verify!">
+        <div style="text-align: center;clear: both">
+          <p id="tos_btn">By using Securify, you accept the Terms of Service.</p>
+        </div>
+
+        <div class="alert alert-danger alert-dismissible" style="display: none" role="alert">
+          <strong>UnKonw Error!</strong>
+        </div>
+        <div id="loading_main" style="display: none">
+          <p style="padding: 16px ; color: #2f61ad; text-align: center">Loading...</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="content_wrap" id="content_analysis" style="display: none">
+  <div class="content_block">
+    <div class="content_inner clearfix">
+      <div class="trim_top"></div>
+      <h2>Anaysis Results</h2>
+
+      <div class="analysis_flex">
+        <div id="analysis_result_wrapper">
+          <div class="title content_reg">
+            <h3>Security Report</h3>
+          </div>
+          <div id="analysis_results">
+            <div id="pattern_table">
+              <div class="pattern_category">
+                <img class="pattern_category_logo" src="./img/freepik-arrows.svg" alt="">
+                <div class="clearfix">
+                  <h4>Callstack</h4>
+                  <div class="pattern_result">
+                    <table>
+                      <tbody>
+                      <tr>
+                        <td>
+                          <span class="status" id="pattern_result_arrows"></span>
+                        </td>
+                        <td>
+                          <span>Callstack error</span>
+                        </td>
+                        <td class="pattern_info" data-toggle="modal" data-target="#callstack_modal">Info</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="pattern_category">
+                <img class="pattern_category_logo" src="./img/freepik-bug.svg" alt="">
+                <div class="clearfix">
+                  <h4>Concurrency</h4>
+                  <div class="pattern_result">
+                    <table>
+                      <tbody>
+                      <tr>
+                        <td>
+                          <span class="status" id="pattern_result_bug"></span>
+                        </td>
+                        <td>
+                          <span>Concurrency error</span>
+                        </td>
+                        <td class="pattern_info" data-toggle="modal" data-target="#reentrancy_modal">Info</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="pattern_category">
+                <img class="pattern_category_logo" src="./img/freepik-filter.svg" alt="">
+                <div class="clearfix">
+                  <h4>Reentrancy</h4>
+                  <div class="pattern_result">
+                    <table>
+                      <tbody>
+                      <tr>
+                        <td>
+                          <span class="status" id="pattern_result_filter"></span>
+                        </td>
+                        <td>
+                          <span>Reentrancy error</span>
+                        </td>
+                        <td class="pattern_info" data-toggle="modal" data-target="#concurrency_modal">Info</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div class="pattern_category">
+                <img class="pattern_category_logo" src="./img/freepik-refresh.svg" alt="">
+                <div class="clearfix">
+                  <h4>TimeDependency</h4>
+                  <div class="pattern_result">
+                    <table>
+                      <tbody>
+                      <tr>
+                        <td>
+                          <span class="status" id="pattern_result_refresh"></span>
+                        </td>
+                        <td>
+                          <span>TimeDependency error</span>
+                        </td>
+                        <td class="pattern_info" data-toggle="modal" data-target="#timedependency_modal">Info</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trim_btm"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div id="footer_inner" class="clearfix">
+    <div class="location clearfix">
+      <div class="address">Software Chieftin Lab</div>
+    </div>
+    <div class="fineprint clearfix">
+      <div class="copyright">
+        ©2017 Chieftin
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal fade" id="callstack_modal" tabindex="-1" role="dialog" style="color: #000000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Callstack Error</h4>
+      </div>
+      <div class="modal-body">
+        <p>Callstack Error</p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="reentrancy_modal" tabindex="-1" role="dialog" style="color: #000000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Reentrancy Error</h4>
+      </div>
+      <div class="modal-body">
+        <p>Reentrancy Error</p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="concurrency_modal" tabindex="-1" role="dialog" style="color: #000000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Concurrency Error</h4>
+      </div>
+      <div class="modal-body">
+        <p>Concurrency Error</p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="timedependency_modal" tabindex="-1" role="dialog" style="color: #000000">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+          aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Timedependency Error</h4>
+      </div>
+      <div class="modal-body">
+        <p>timedependency Error</p>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+</div>
+
+</body>
+
+<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  var solidity = document.getElementById("code-solidity");
+  var bytecode = document.getElementById("code-bytecode");
+
+  var cm = CodeMirror.fromTextArea(solidity, {
+    value: "Input Your Smart Contract",
+    mode: "javascript",
+    lineNumbers: true,
+  });
+
+  var bytearea = CodeMirror.fromTextArea(bytecode, {
+    value: "Input Your ByteCode",
+    mode: "javascript",
+    lineNumbers: false,
+  });
+</script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+  window.ga = function () {
+    ga.q.push(arguments)
+  };
+  ga.q = [];
+  ga.l = +new Date;
+  ga('create', 'UA-XXXXX-Y', 'auto');
+  ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async defer></script>
+</html>
