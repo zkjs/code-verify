@@ -9,9 +9,12 @@ FrontEnd is build by html5
 Install it from npm(using gulp etc)
 
 ```
-cd ./FrontEnd
+cd ./BackEnd
 npm install
-npm run build 
+
+cd ./BackEnd/app
+npm install
+
 ```
 that's all. Html5 file will be found in dist file.
 
@@ -25,8 +28,7 @@ Install it from npm(using express pm2 etc)
 
 ```
 cd ./BackEnd
-npm install
-npm start
+npm run deploy
 ```
 
 visit website by localhost:3000
