@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "pm2 start ./bin/www",
-    "restart": "pm2 restart ./bin/www"
+    "restart": "pm2 restart ./bin/www",
+    "deploy": "gulp"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -14,5 +15,10 @@
     "hbs": "~4.0.1",
     "morgan": "~1.8.1",
     "serve-favicon": "~2.4.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "run-sequence": "^2.0.0",
+    "del": "^3.0.0"
   }
 }
