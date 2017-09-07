@@ -5,7 +5,7 @@
   "scripts": {
     "start": "pm2 start ./bin/www",
     "restart": "pm2 restart ./bin/www",
-    "deploy": "gulp && npm start"
+    "deploy": "gulp && npm restart"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

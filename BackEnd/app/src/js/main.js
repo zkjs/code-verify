@@ -12,13 +12,10 @@ var byte_type = 1;
 
 (function () {
   $("#analysis_start").click(function () {
-    window.cm.save();
-    window.bytearea.save();
-    
-    
-    var sol_value = window.cm.getTextArea().value;
-    var byte_value = window.bytearea.getTextArea().value;
-    
+
+    var sol_value = window.cm.getValue();
+    var byte_value = window.bytearea.getValue();
+
     // if (!sol_value) {
     //   $(".alert").show();
     //   return;
@@ -30,10 +27,12 @@ var byte_type = 1;
     // }
     //
     // $(".alert").hide();
-    
+
     $("#loading_main").show();
     if (submit_type === sol_type) {
-      $.post(request_sol, {code: sol_value}, function (data, textStatus) {
+      $.post(request_sol, {
+        code: sol_value
+      }, function (data, textStatus) {
         console.log("data", data);
         console.log("textStatus", textStatus);
         $("#loading_main").hide();
@@ -42,30 +41,32 @@ var byte_type = 1;
         } else {
           $("#pattern_result_arrows").addClass("matched");
         }
-        
+
         if (!data.result.concurrency) {
           $("#pattern_result_bug").addClass("safe");
-          
+
         } else {
           $("#pattern_result_bug").addClass("matched");
         }
-        
+
         if (!data.result.reentrancy) {
           $("#pattern_result_filter").addClass("safe");
         } else {
           $("#pattern_result_filter").addClass("matched");
         }
-        
+
         if (!data.result.time_dependency) {
           $("#pattern_result_refresh").addClass("safe");
         } else {
           $("#pattern_result_refresh").addClass("matched");
         }
-        
+
         $("#content_analysis").fadeIn();
       });
     } else {
-      $.post(request_bytecode, {code: byte_value}, function (data, textStatus) {
+      $.post(request_bytecode, {
+        code: byte_value
+      }, function (data, textStatus) {
         console.log("data", data);
         console.log("textStatus", textStatus);
         $("#loading_main").hide();
@@ -74,33 +75,31 @@ var byte_type = 1;
         } else {
           $("#pattern_result_arrows").addClass("matched");
         }
-        
+
         if (!data.result.concurrency) {
           $("#pattern_result_bug").addClass("safe");
-          
+
         } else {
           $("#pattern_result_bug").addClass("matched");
         }
-        
+
         if (!data.result.reentrancy) {
           $("#pattern_result_filter").addClass("safe");
         } else {
           $("#pattern_result_filter").addClass("matched");
         }
-        
+
         if (!data.result.time_dependency) {
           $("#pattern_result_refresh").addClass("safe");
         } else {
           $("#pattern_result_refresh").addClass("matched");
         }
-        
+
         $("#content_analysis").fadeIn();
-      }).error(function () {
-        $("#loading_main").hide();
       });
     }
   });
-  
+
   $("#btn-solidity").click(function () {
     submit_type = sol_type;
     $("#btn-solidity").addClass("active");
@@ -108,7 +107,7 @@ var byte_type = 1;
     $("#code-solidity-wrapper").show();
     $("#code-bytecode-wrapper").hide();
   });
-  
+
   $("#btn-bytecode").click(function () {
     submit_type = byte_type;
     $("#btn-bytecode").addClass("active");
@@ -117,5 +116,3 @@ var byte_type = 1;
     $("#code-bytecode-wrapper").show();
   });
 })();
-
-
