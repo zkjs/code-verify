@@ -1,10 +1,12 @@
 /*! HTML5 Boilerplate v6.0.0 | MIT License | https://html5boilerplate.com/ */
 
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
+
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -15,6 +17,7 @@ html {
   font-size: 1em;
   line-height: 1.4;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -36,6 +39,7 @@ html {
   text-shadow: none;
 }
 
+
 /*
  * A better looking default horizontal rule
  */
@@ -48,6 +52,7 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
+
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -64,6 +69,7 @@ video {
   vertical-align: middle;
 }
 
+
 /*
  * Remove default fieldset styles.
  */
@@ -74,6 +80,7 @@ fieldset {
   padding: 0;
 }
 
+
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -81,6 +88,7 @@ fieldset {
 textarea {
   resize: vertical;
 }
+
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -92,6 +100,7 @@ textarea {
   color: #000;
   padding: 0.2em 0;
 }
+
 
 /* ==========================================================================
    Author's custom styles
@@ -109,9 +118,11 @@ body {
   background: #ffffff;
 }
 
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
 
 /*
  * Hide visually and from screen readers
@@ -120,6 +131,7 @@ body {
 .hidden {
   display: none !important;
 }
+
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -140,8 +152,10 @@ body {
   overflow: hidden;
   padding: 0;
   width: 1px;
-  white-space: nowrap; /* 1 */
+  white-space: nowrap;
+  /* 1 */
 }
+
 
 /*
  * Extends the .visuallyhidden class to allow the element
@@ -162,6 +176,7 @@ body {
   white-space: inherit;
 }
 
+
 /*
  * Hide visually and from screen readers, but maintain layout
  */
@@ -169,6 +184,7 @@ body {
 .invisible {
   visibility: hidden;
 }
+
 
 /*
  * Clearfix: contain floats
@@ -184,13 +200,16 @@ body {
 
 .clearfix:before,
 .clearfix:after {
-  content: " "; /* 1 */
-  display: table; /* 2 */
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
 }
 
 .clearfix:after {
   clear: both;
 }
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -209,6 +228,7 @@ body {
   /* Style adjustments for high resolution devices */
 }
 
+
 /* ==========================================================================
    Print styles.
    Inlined to avoid the additional HTTP request:
@@ -226,20 +246,16 @@ body {
     box-shadow: none !important;
     text-shadow: none !important;
   }
-
   a,
   a:visited {
     text-decoration: underline;
   }
-
   a[href]:after {
     content: " (" attr(href) ")";
   }
-
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
-
   /*
    * Don't show links that are fragment identifiers,
    * or use the `javascript:` pseudo protocol
@@ -248,17 +264,14 @@ body {
   a[href^="javascript:"]:after {
     content: "";
   }
-
   pre {
     white-space: pre-wrap !important;
   }
-
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
-
   /*
    * Printing Tables:
    * http://css-discuss.incutio.com/wiki/Printing_Tables
@@ -266,23 +279,34 @@ body {
   thead {
     display: table-header-group;
   }
-
   tr,
   img {
     page-break-inside: avoid;
   }
-
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3;
   }
-
   h2,
   h3 {
     page-break-after: avoid;
   }
+}
+
+.modal-dialog {
+  margin: 360px auto;
+}
+
+.modal-content {
+  text-align: left;
+  background: #333333 !important;
+  color: #ffffff;
+}
+
+.modal-header {
+  border-bottom: none;
 }
 
 header .header_inner {
@@ -453,7 +477,6 @@ section .content_inner {
   margin: 5px 10px 5px 0px;
   width: 20px;
   height: 20px;
-
   background-size: 100% 100%;
   vertical-align: middle;
   color: transparent;
@@ -536,6 +559,3 @@ section .content_inner {
   float: right;
   margin: 2px -6px 2px 2px;
 }
-
-
-

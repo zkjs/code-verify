@@ -39,6 +39,7 @@
       font-size: 14px;
       height: 400px;
     }
+
   </style>
 </head>
 
@@ -94,7 +95,7 @@
           </div>
           <input type="button" id="analysis_start" value="Formally Verify!">
           <div style="text-align: center;clear: both">
-            <p id="tos_btn">By using Securify, you accept the Terms of Service.</p>
+            <p id="tos_btn">By using Chieftin, you accept the Terms of Service.</p>
           </div>
 
           <div class="alert alert-danger alert-dismissible" style="display: none" role="alert">
@@ -156,7 +157,7 @@
                             <td>
                               <span>Concurrency error</span>
                             </td>
-                            <td class="pattern_info" data-toggle="modal" data-target="#reentrancy_modal">Info</td>
+                            <td class="pattern_info" data-toggle="modal" data-target="#concurrency_modal">Info</td>
                           </tr>
                         </tbody>
                       </table>
@@ -177,7 +178,7 @@
                             <td>
                               <span>Reentrancy error</span>
                             </td>
-                            <td class="pattern_info" data-toggle="modal" data-target="#concurrency_modal">Info</td>
+                            <td class="pattern_info" data-toggle="modal" data-target="#reentrancy_modal">Info</td>
                           </tr>
                         </tbody>
                       </table>
@@ -236,7 +237,7 @@
           <h4 class="modal-title">Callstack Error</h4>
         </div>
         <div class="modal-body">
-          <p>Callstack Error</p>
+          Callstack Error
         </div>
       </div>
       <!-- /.modal-content -->
@@ -254,7 +255,7 @@
           <h4 class="modal-title">Reentrancy Error</h4>
         </div>
         <div class="modal-body">
-          <p>Reentrancy Error</p>
+          Reentrancy Error
         </div>
       </div>
       <!-- /.modal-content -->
@@ -272,7 +273,7 @@
           <h4 class="modal-title">Concurrency Error</h4>
         </div>
         <div class="modal-body">
-          <p>Concurrency Error</p>
+          Concurrency Error
         </div>
       </div>
       <!-- /.modal-content -->
@@ -290,7 +291,7 @@
           <h4 class="modal-title">Timedependency Error</h4>
         </div>
         <div class="modal-body">
-          <p>timedependency Error</p>
+          Timedependency Error
         </div>
       </div>
       <!-- /.modal-content -->
@@ -298,9 +299,7 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
-
   </div>
-
 </body>
 
 <script src="js/vendor/modernizr-3.5.0.min.js"></script>

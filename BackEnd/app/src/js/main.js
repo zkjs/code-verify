@@ -14,8 +14,9 @@ var byte_type = 1;
   $("#analysis_start").click(function () {
 
     var sol_value = window.cm.getValue();
-    var byte_value = window.bytearea.getValue();
+    var byte_value = window.bytearea.getValue().replace(/[/n]/g,'');
 
+    console.log('byte_value', byte_value, typeof (byte_value));
     // if (!sol_value) {
     //   $(".alert").show();
     //   return;
