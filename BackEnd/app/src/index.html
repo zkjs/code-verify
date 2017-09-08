@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Code Verify</title>
+  <title>SCore IL</title>
   <meta name="description" content="code verify">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -54,16 +54,17 @@
     <header>
       <div class="header_inner clearfix">
         <div id="logo" class="wow fadeInLeft" data-wow-delay="0.1s">
-          <a href="./" title="Securify Ethereum Smart Contract Security Checker">
+          <a href="./" title="SCore: A Smart Contract Language for Verification">
           <img src="./img/logo_h40.png" alt="Security" style="height: 41px">
         </a>
         </div>
 
         <div class="intro_text">
-          <h1 class="wow fadeInUp" data-wow-delay="0.3s">Formal Verification of Ethereum Smart Contracts</h1>
+          <h1 class="wow fadeInUp" data-wow-delay="0.3s">SCore: A Smart Contract Language for Verification</h1>
           <h3 class="wow fadeInUp" data-wow-delay="0.6s">
-            Analyse any contract for critical security vulnerabilities and insecure coding.
-            <br> One click only. Formal security guarantees. Accepts source. Extensible.
+            SCore is a Intermediate Language which is designed to modelling multiple Smart Contract Sources for multiple Blockchain environments.
+            <br> Full Automation, Customizable, Extensible, with Comprehensive Feedbacks, Excellent Usability and Strong
+            Guarantees.
           </h3>
         </div>
       </div>
@@ -73,9 +74,22 @@
   <section class="content_wrap" id="content_upload">
     <div class="content_block">
       <div class="content_inner clearfix">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Ethereum</a></li>
+                <li><a href="#">and More</a></li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
         <form id="checkform">
           <div class="code_form_header clearfix">
-            <div class="code_form_title">Enter Contract</div>
+            <div class="code_form_title">Enter Contract Code for Ethereum</div>
             <div class="code_form_toggles">
               <button type="button" class="btn btn-default" id="btn-solidity">Solidity</button>
               <button type="button" class="btn btn-default" id="btn-bytecode">Bytecode</button>
@@ -94,10 +108,6 @@
             </div>
           </div>
           <input type="button" id="analysis_start" value="Formally Verify!">
-          <div style="text-align: center;clear: both">
-            <p id="tos_btn">By using Chieftin, you accept the Terms of Service.</p>
-          </div>
-
           <div class="alert alert-danger alert-dismissible" style="display: none" role="alert">
             <strong>UnKonw Error!</strong>
           </div>
@@ -125,7 +135,7 @@
                 <div class="pattern_category">
                   <img class="pattern_category_logo" src="./img/freepik-arrows.svg" alt="">
                   <div class="clearfix">
-                    <h4>Callstack</h4>
+                    <h4>Call Stack</h4>
                     <div class="pattern_result">
                       <table>
                         <tbody>
@@ -134,7 +144,7 @@
                               <span class="status" id="pattern_result_arrows"></span>
                             </td>
                             <td>
-                              <span>Callstack error</span>
+                              <span>Call Stack error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#callstack_modal">Info</td>
                           </tr>
@@ -165,9 +175,9 @@
                   </div>
                 </div>
                 <div class="pattern_category">
-                  <img class="pattern_category_logo" src="./img/freepik-filter.svg" alt="">
+                  <img class="pattern_category_logo" src="./img/freepik-refresh.svg" alt="">
                   <div class="clearfix">
-                    <h4>Reentrancy</h4>
+                    <h4>Re-entrancy</h4>
                     <div class="pattern_result">
                       <table>
                         <tbody>
@@ -176,7 +186,7 @@
                               <span class="status" id="pattern_result_filter"></span>
                             </td>
                             <td>
-                              <span>Reentrancy error</span>
+                              <span>Re-entrancy error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#reentrancy_modal">Info</td>
                           </tr>
@@ -186,9 +196,9 @@
                   </div>
                 </div>
                 <div class="pattern_category">
-                  <img class="pattern_category_logo" src="./img/freepik-refresh.svg" alt="">
+                  <img class="pattern_category_logo" src="./img/freepik-filter.svg" alt="">
                   <div class="clearfix">
-                    <h4>TimeDependency</h4>
+                    <h4>Time Dependency</h4>
                     <div class="pattern_result">
                       <table>
                         <tbody>
@@ -197,7 +207,7 @@
                               <span class="status" id="pattern_result_refresh"></span>
                             </td>
                             <td>
-                              <span>TimeDependency error</span>
+                              <span>Time Dependency error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#timedependency_modal">Info</td>
                           </tr>
@@ -218,7 +228,9 @@
   <footer>
     <div id="footer_inner" class="clearfix">
       <div class="location clearfix">
-        <div class="address">Software Chieftin Lab</div>
+        <div class="address">
+          <a href="mailto:contact@chieftin.org">ChieftinLab SCore Team</a>
+        </div>
       </div>
       <div class="fineprint clearfix">
         <div class="copyright">
@@ -234,10 +246,15 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Callstack Error</h4>
+          <h4 class="modal-title">Call Stack</h4>
         </div>
         <div class="modal-body">
-          Callstack Error
+          The CALL opcode (used to send messages to other contracts, or send funds to non-contract accounts) will fail if it causes
+          the call stack to exceed 1024 frames.
+          <br>This is not an exception: instead, the CALL operation indicates an error, instead of returning data from the
+          callee contract. These errors cannot be disproved by static analysis, as the available number of call-stack frames
+          depends upon the exact runtime environment(Source).
+          <br>In the verification process the runtime sequence will be analysed to find this vulnerability.
         </div>
       </div>
       <!-- /.modal-content -->
@@ -252,10 +269,14 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Reentrancy Error</h4>
+          <h4 class="modal-title">Re-entrancy</h4>
         </div>
         <div class="modal-body">
-          Reentrancy Error
+          Reentrancy is an issue when code can call back into your contract and change state, such as withdrawing ether. Also known
+          as DAO vulnerability.
+          <br>At each CALL that is encountered, if the path condition before the CALL execution would allow the callee re-executed
+          the CALL before the operation finished.
+          <br>If SENDER and TRANSFER is used instead, the amount of gas is also checked, in case of the exceeding threshold.
         </div>
       </div>
       <!-- /.modal-content -->
@@ -270,10 +291,15 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Concurrency Error</h4>
+          <h4 class="modal-title">Concurrency</h4>
         </div>
         <div class="modal-body">
-          Concurrency Error
+          The order of transactions included in a block is not determined at the moment of transaction execution. Outcomes may depend
+          on transaction ordering.
+          <br>This non-determinism can be exploited by adversarial parties and makes reasoning about contract behavior particularly
+          subtle, reminiscent to known challenges involved in conventional concurrent programming.
+          <br> At each CALL and SUICIDE instruction, if the sender, recepient and the value transferred are different for
+          defferent flows, the vulnerability will be reported.
         </div>
       </div>
       <!-- /.modal-content -->
@@ -288,10 +314,13 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
           aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Timedependency Error</h4>
+          <h4 class="modal-title">Time Dependency</h4>
         </div>
         <div class="modal-body">
-          Timedependency Error
+          TIMESTAMP returns the current blockchain timestamp and should not be used, As the timestamp of the block can be predicted
+          or manipulated by the miner, which is something that the developers must keep in mind when implementing routines
+          that depend on such variable.
+          <br>If the contract code used such instruction the vulnerability will be reported.
         </div>
       </div>
       <!-- /.modal-content -->
