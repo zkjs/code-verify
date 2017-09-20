@@ -253,9 +253,10 @@
           the call stack to exceed 1024 frames.
           <br>This is not an exception: instead, the CALL operation indicates an error, instead of returning data from the
           callee contract. These errors cannot be disproved by static analysis, as the available number of call-stack frames
-          depends upon the exact runtime environment(Source).
+          depends upon the exact runtime environment<a href="https://github.com/LeastAuthority/ethereum-analyses/blob/master/GasEcon.md#callstack-depth-limit-errors">(Source)</a>.
           <br>In the verification process the runtime sequence will be analysed to find this vulnerability.
         </div>
+       
       </div>
       <!-- /.modal-content -->
     </div>

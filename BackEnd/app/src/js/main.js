@@ -14,7 +14,7 @@ var byte_type = 1;
   $("#analysis_start").click(function () {
 
     var sol_value = window.cm.getValue();
-    var byte_value = window.bytearea.getValue().replace(/[/n]/g,'');
+    var byte_value = window.bytearea.getValue().replace(/[/n]/g, '');
 
     console.log('byte_value', byte_value, typeof (byte_value));
     // if (!sol_value) {
@@ -39,27 +39,34 @@ var byte_type = 1;
         $("#loading_main").hide();
         if (!data.result.callstack) {
           $("#pattern_result_arrows").addClass("safe");
+          $("#call_stack_label").text("Call Stack matched");
         } else {
           $("#pattern_result_arrows").addClass("matched");
+          $("#call_stack_label").text("Call Stack error");
         }
 
         if (!data.result.concurrency) {
           $("#pattern_result_bug").addClass("safe");
-
+          $("#concurrency_label").text("Concurrency matched");
         } else {
           $("#pattern_result_bug").addClass("matched");
+          $("#concurrency_label").text("Concurrency error");
         }
 
         if (!data.result.reentrancy) {
           $("#pattern_result_filter").addClass("safe");
+          $("#reentrancy_label").text("Re-entrancy matched");
         } else {
           $("#pattern_result_filter").addClass("matched");
+          $("#reentrancy_label").text("Re-entrancy error");
         }
 
         if (!data.result.time_dependency) {
           $("#pattern_result_refresh").addClass("safe");
+          $("#time_dependency_label").text("Time Dependency matched");
         } else {
           $("#pattern_result_refresh").addClass("matched");
+          $("#time_dependency_label").text("Time Dependency error");
         }
 
         $("#content_analysis").fadeIn();
@@ -73,27 +80,34 @@ var byte_type = 1;
         $("#loading_main").hide();
         if (!data.result.callstack) {
           $("#pattern_result_arrows").addClass("safe");
+          $("#call_stack_label").text("Call Stack matched");
         } else {
           $("#pattern_result_arrows").addClass("matched");
+          $("#call_stack_label").text("Call Stack error");
         }
 
         if (!data.result.concurrency) {
           $("#pattern_result_bug").addClass("safe");
-
+          $("#concurrency_label").text("Concurrency matched");
         } else {
           $("#pattern_result_bug").addClass("matched");
+          $("#concurrency_label").text("Concurrency error");
         }
 
         if (!data.result.reentrancy) {
           $("#pattern_result_filter").addClass("safe");
+          $("#reentrancy_label").text("Re-entrancy matched");
         } else {
           $("#pattern_result_filter").addClass("matched");
+          $("#reentrancy_label").text("Re-entrancy error");
         }
 
         if (!data.result.time_dependency) {
           $("#pattern_result_refresh").addClass("safe");
+          $("#time_dependency_label").text("Time Dependency matched");
         } else {
           $("#pattern_result_refresh").addClass("matched");
+          $("#time_dependency_label").text("Time Dependency error");
         }
 
         $("#content_analysis").fadeIn();

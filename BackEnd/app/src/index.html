@@ -144,7 +144,7 @@
                               <span class="status" id="pattern_result_arrows"></span>
                             </td>
                             <td>
-                              <span>Call Stack error</span>
+                              <span id="call_stack_label">Call Stack error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#callstack_modal">Info</td>
                           </tr>
@@ -165,7 +165,7 @@
                               <span class="status" id="pattern_result_bug"></span>
                             </td>
                             <td>
-                              <span>Concurrency error</span>
+                              <span id="concurrency_label">Concurrency error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#concurrency_modal">Info</td>
                           </tr>
@@ -186,7 +186,7 @@
                               <span class="status" id="pattern_result_filter"></span>
                             </td>
                             <td>
-                              <span>Re-entrancy error</span>
+                              <span id="reentrancy_label">Re-entrancy error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#reentrancy_modal">Info</td>
                           </tr>
@@ -207,7 +207,7 @@
                               <span class="status" id="pattern_result_refresh"></span>
                             </td>
                             <td>
-                              <span>Time Dependency error</span>
+                              <span id="time_dependency_label">Time Dependency error</span>
                             </td>
                             <td class="pattern_info" data-toggle="modal" data-target="#timedependency_modal">Info</td>
                           </tr>
@@ -253,9 +253,10 @@
           the call stack to exceed 1024 frames.
           <br>This is not an exception: instead, the CALL operation indicates an error, instead of returning data from the
           callee contract. These errors cannot be disproved by static analysis, as the available number of call-stack frames
-          depends upon the exact runtime environment(Source).
+          depends upon the exact runtime environment<a href="https://github.com/LeastAuthority/ethereum-analyses/blob/master/GasEcon.md#callstack-depth-limit-errors" target="view_window">(Source)</a>.
           <br>In the verification process the runtime sequence will be analysed to find this vulnerability.
         </div>
+       
       </div>
       <!-- /.modal-content -->
     </div>
