@@ -311,12 +311,22 @@ body {
   border-bottom: none;
 }
 
+.modal-body {
+  font-size: 16px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
 header .header_inner {
   width: 80%;
   position: relative;
   margin: 0 auto;
   padding: 60px 0 50px 0;
   color: #333333;
+}
+
+.navbar {
+  margin-bottom: 0px;
 }
 
 header {

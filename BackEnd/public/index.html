@@ -74,6 +74,19 @@
   <section class="content_wrap" id="content_upload">
     <div class="content_block">
       <div class="content_inner clearfix">
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Ethereum</a></li>
+                <li><a href="#">and More</a></li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          </div>
+          <!-- /.container-fluid -->
+        </nav>
         <form id="checkform">
           <div class="code_form_header clearfix">
             <div class="code_form_title">Enter Contract Code for Ethereum</div>
@@ -216,7 +229,7 @@
     <div id="footer_inner" class="clearfix">
       <div class="location clearfix">
         <div class="address">
-          <a href="contact@chieftin.org">ChieftinLab SCore Team</a>
+          <a href="mailto:contact@chieftin.org">ChieftinLab SCore Team</a>
         </div>
       </div>
       <div class="fineprint clearfix">
@@ -236,8 +249,12 @@
           <h4 class="modal-title">Call Stack</h4>
         </div>
         <div class="modal-body">
-            The CALL opcode (used to send messages to other contracts, or send funds to non-contract accounts) will fail if it causes the call stack to exceed 1024 frames. This is not an exception: instead, the CALL operation indicates an error, instead of returning data from the callee contract. These errors cannot be disproved by static analysis, as the available number of call-stack frames depends upon the exact runtime
-          environment(Source). In the verification process the runtime sequence will be analysed to find this vulnerability.
+          The CALL opcode (used to send messages to other contracts, or send funds to non-contract accounts) will fail if it causes
+          the call stack to exceed 1024 frames.
+          <br>This is not an exception: instead, the CALL operation indicates an error, instead of returning data from the
+          callee contract. These errors cannot be disproved by static analysis, as the available number of call-stack frames
+          depends upon the exact runtime environment(Source).
+          <br>In the verification process the runtime sequence will be analysed to find this vulnerability.
         </div>
       </div>
       <!-- /.modal-content -->
@@ -255,7 +272,11 @@
           <h4 class="modal-title">Re-entrancy</h4>
         </div>
         <div class="modal-body">
-            Reentrancy is an issue when code can call back into your contract and change state, such as withdrawing ether. Also known as DAO vulnerability. At each CALL that is encountered, if the path condition before the CALL execution would allow the callee re-executed the CALL before the operation finished. If SENDER and TRANSFER is used instead, the amount of gas is also checked, in case of the exceeding threshold.
+          Reentrancy is an issue when code can call back into your contract and change state, such as withdrawing ether. Also known
+          as DAO vulnerability.
+          <br>At each CALL that is encountered, if the path condition before the CALL execution would allow the callee re-executed
+          the CALL before the operation finished.
+          <br>If SENDER and TRANSFER is used instead, the amount of gas is also checked, in case of the exceeding threshold.
         </div>
       </div>
       <!-- /.modal-content -->
@@ -273,7 +294,12 @@
           <h4 class="modal-title">Concurrency</h4>
         </div>
         <div class="modal-body">
-            The order of transactions included in a block is not determined at the moment of transaction execution. Outcomes may depend on transaction ordering. This non-determinism can be exploited by adversarial parties and makes reasoning about contract behavior particularly subtle, reminiscent to known challenges involved in conventional concurrent programming. At each CALL and SUICIDE instruction, if the sender, recepient and the value transferred are different for defferent flows, the vulnerability will be reported.
+          The order of transactions included in a block is not determined at the moment of transaction execution. Outcomes may depend
+          on transaction ordering.
+          <br>This non-determinism can be exploited by adversarial parties and makes reasoning about contract behavior particularly
+          subtle, reminiscent to known challenges involved in conventional concurrent programming.
+          <br> At each CALL and SUICIDE instruction, if the sender, recepient and the value transferred are different for
+          defferent flows, the vulnerability will be reported.
         </div>
       </div>
       <!-- /.modal-content -->
@@ -291,7 +317,10 @@
           <h4 class="modal-title">Time Dependency</h4>
         </div>
         <div class="modal-body">
-            TIMESTAMP returns the current blockchain timestamp and should not be used, As the timestamp of the block can be predicted or manipulated by the miner, which is something that the developers must keep in mind when implementing routines that depend on such variable. If the contract code used such instruction the vulnerability will be reported.
+          TIMESTAMP returns the current blockchain timestamp and should not be used, As the timestamp of the block can be predicted
+          or manipulated by the miner, which is something that the developers must keep in mind when implementing routines
+          that depend on such variable.
+          <br>If the contract code used such instruction the vulnerability will be reported.
         </div>
       </div>
       <!-- /.modal-content -->
