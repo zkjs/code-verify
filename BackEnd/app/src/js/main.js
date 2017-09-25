@@ -39,7 +39,7 @@ var byte_type = 1;
         $("#loading_main").hide();
         if (!data.result.callstack) {
           $("#pattern_result_arrows").addClass("safe");
-          $("#call_stack_label").text("Call Stack matched");
+          $("#call_stack_label").text("Call Stack pass");
         } else {
           $("#pattern_result_arrows").addClass("matched");
           $("#call_stack_label").text("Call Stack error");
@@ -47,7 +47,7 @@ var byte_type = 1;
 
         if (!data.result.concurrency) {
           $("#pattern_result_bug").addClass("safe");
-          $("#concurrency_label").text("Concurrency matched");
+          $("#concurrency_label").text("Concurrency pass");
         } else {
           $("#pattern_result_bug").addClass("matched");
           $("#concurrency_label").text("Concurrency error");
@@ -55,7 +55,7 @@ var byte_type = 1;
 
         if (!data.result.reentrancy) {
           $("#pattern_result_filter").addClass("safe");
-          $("#reentrancy_label").text("Re-entrancy matched");
+          $("#reentrancy_label").text("Re-entrancy pass");
         } else {
           $("#pattern_result_filter").addClass("matched");
           $("#reentrancy_label").text("Re-entrancy error");
@@ -63,7 +63,7 @@ var byte_type = 1;
 
         if (!data.result.time_dependency) {
           $("#pattern_result_refresh").addClass("safe");
-          $("#time_dependency_label").text("Time Dependency matched");
+          $("#time_dependency_label").text("Time Dependency pass");
         } else {
           $("#pattern_result_refresh").addClass("matched");
           $("#time_dependency_label").text("Time Dependency error");
@@ -80,7 +80,7 @@ var byte_type = 1;
         $("#loading_main").hide();
         if (!data.result.callstack) {
           $("#pattern_result_arrows").addClass("safe");
-          $("#call_stack_label").text("Call Stack matched");
+          $("#call_stack_label").text("Call Stack pass");
         } else {
           $("#pattern_result_arrows").addClass("matched");
           $("#call_stack_label").text("Call Stack error");
@@ -88,7 +88,7 @@ var byte_type = 1;
 
         if (!data.result.concurrency) {
           $("#pattern_result_bug").addClass("safe");
-          $("#concurrency_label").text("Concurrency matched");
+          $("#concurrency_label").text("Concurrency pass");
         } else {
           $("#pattern_result_bug").addClass("matched");
           $("#concurrency_label").text("Concurrency error");
@@ -96,7 +96,7 @@ var byte_type = 1;
 
         if (!data.result.reentrancy) {
           $("#pattern_result_filter").addClass("safe");
-          $("#reentrancy_label").text("Re-entrancy matched");
+          $("#reentrancy_label").text("Re-entrancy pass");
         } else {
           $("#pattern_result_filter").addClass("matched");
           $("#reentrancy_label").text("Re-entrancy error");
@@ -104,7 +104,7 @@ var byte_type = 1;
 
         if (!data.result.time_dependency) {
           $("#pattern_result_refresh").addClass("safe");
-          $("#time_dependency_label").text("Time Dependency matched");
+          $("#time_dependency_label").text("Time Dependency pass");
         } else {
           $("#pattern_result_refresh").addClass("matched");
           $("#time_dependency_label").text("Time Dependency error");
