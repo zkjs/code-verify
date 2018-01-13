@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/main.css">
 
   <script src="js/codemirror.js"></script>
+  <script src="js/codemirror-activeline.js"></script>
   <script src="js/mode/javascript/javascript.js"></script>
   <link rel="stylesheet" href="css/lib/codemirror.css">
   <!--支持代码折叠-->
@@ -74,25 +75,14 @@
   <section class="content_wrap" id="content_upload">
     <div class="content_block">
       <div class="content_inner clearfix">
-        <nav class="navbar navbar-default">
-          <div class="container-fluid">
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#">Ethereum</a></li>
-                <li><a href="#">and More</a></li>
-              </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-          </div>
-          <!-- /.container-fluid -->
-        </nav>
         <form id="checkform">
           <div class="code_form_header clearfix">
             <div class="code_form_title">Enter Contract Code for Ethereum</div>
             <div class="code_form_toggles">
               <button type="button" class="btn btn-default" id="btn-solidity">Solidity</button>
               <button type="button" class="btn btn-default" id="btn-bytecode">Bytecode</button>
+              <button type="button" class="btn btn-default" id="btn-sample1">sample1</button>
+              <button type="button" class="btn btn-default" id="btn-sample2">sample2</button>
             </div>
           </div>
           <div class="codeholder">
@@ -101,12 +91,26 @@
                 <!-- <textarea id="code-solidity" cols="120" rows="16"></textarea> -->
                 <div id="code-solidity" style="height: 400px"></div>
               </div>
-              <div id="code-bytecode-wrapper" style="display: none">
-                <!-- <textarea id="code-bytecode" cols="120" rows="16"></textarea> -->
-                <div id="code-bytecode" style="height: 400px"></div>
-              </div>
             </div>
           </div>
+
+          <div>
+            <span class="input-group-addon">
+              <label style="width: 15%">
+                <input type="checkbox" id="check0"/> test 1
+              </label>
+              <label style="width: 15%">
+                <input type="checkbox" id="check1"/> test 1
+              </label>
+              <label style="width: 15%">
+                <input type="checkbox" id="check2"/> test 2
+              </label>
+              <label style="width: 15%">
+                <input type="checkbox" id="check3"/> test 3
+              </label>
+           </span>
+          </div>
+
           <input type="button" id="analysis_start" value="Formally Verify!">
           <div class="alert alert-danger alert-dismissible" style="display: none" role="alert">
             <strong>UnKonw Error!</strong>
@@ -256,7 +260,7 @@
           depends upon the exact runtime environment<a href="https://github.com/LeastAuthority/ethereum-analyses/blob/master/GasEcon.md#callstack-depth-limit-errors" target="view_window">(Source)</a>.
           <br>In the verification process the runtime sequence will be analysed to find this vulnerability.
         </div>
-       
+
       </div>
       <!-- /.modal-content -->
     </div>
@@ -348,14 +352,15 @@
     mode: "javascript",
     smartIndent: true,
     lineNumbers: true,
+    autofocus:false
   });
 
-  var bytearea = CodeMirror(document.getElementById("code-bytecode"), {
-    value: "60606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b14610046\n578063b6b55f2514610058575bfe5b341561004e57fe5b610056610078565b005b341561006057fe5b610076600480803590602001909190\n5050610133565b005b3373ffffffffffffffffffffffffffffffffffffffff16600060003373ffffffffffffffffffffffffffffffffffff\nffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205460405180905060006040518083038185\n876187965a03f192505050506000600060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffff\nffffffffffff168152602001908152602001600020819055505b565b80600060003373ffffffffffffffffffffffffffffffffffffffff16\n73ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055505b505600",
-    mode: "javascript",
-    smartIndent: true,
-    lineNumbers: false,
-  });
+  function highlightLine(lineNumbers) {
+
+    lineNumbers.forEach(function (value) {
+      cm.markText({line:value - 1,ch:0},{line:value - 1,ch:90},{className: "styled-background"});
+    })
+  }
 
 </script>
 

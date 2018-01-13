@@ -2,13 +2,11 @@
 
 /*! HTML5 Boilerplate v6.0.0 | MIT License | https://html5boilerplate.com/ */
 
-
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
-
 
 /* ==========================================================================
    Base styles: opinionated defaults
@@ -19,7 +17,6 @@ html {
   font-size: 1em;
   line-height: 1.4;
 }
-
 
 /*
  * Remove text-shadow in selection highlight:
@@ -41,7 +38,6 @@ html {
   text-shadow: none;
 }
 
-
 /*
  * A better looking default horizontal rule
  */
@@ -54,7 +50,6 @@ hr {
   margin: 1em 0;
   padding: 0;
 }
-
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -71,7 +66,6 @@ video {
   vertical-align: middle;
 }
 
-
 /*
  * Remove default fieldset styles.
  */
@@ -82,7 +76,6 @@ fieldset {
   padding: 0;
 }
 
-
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -90,7 +83,6 @@ fieldset {
 textarea {
   resize: vertical;
 }
-
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -103,13 +95,12 @@ textarea {
   padding: 0.2em 0;
 }
 
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 body {
-  font-family: 'Raleway', Arial, sans-serif;
+  font-family: "Raleway", Arial, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -120,11 +111,9 @@ body {
   background: #ffffff;
 }
 
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
-
 
 /*
  * Hide visually and from screen readers
@@ -133,7 +122,6 @@ body {
 .hidden {
   display: none !important;
 }
-
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -158,7 +146,6 @@ body {
   /* 1 */
 }
 
-
 /*
  * Extends the .visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
@@ -178,7 +165,6 @@ body {
   white-space: inherit;
 }
 
-
 /*
  * Hide visually and from screen readers, but maintain layout
  */
@@ -186,7 +172,6 @@ body {
 .invisible {
   visibility: hidden;
 }
-
 
 /*
  * Clearfix: contain floats
@@ -212,7 +197,6 @@ body {
   clear: both;
 }
 
-
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
    These examples override the primary ('mobile first') styles.
@@ -224,12 +208,11 @@ body {
 }
 
 @media print,
-(-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */
 }
-
 
 /* ==========================================================================
    Print styles.
@@ -376,7 +359,7 @@ footer #footer_inner {
   font-size: 12px;
   line-height: 20px;
   font-weight: 700;
-  color: #8C95A2;
+  color: #8c95a2;
 }
 
 footer .location {
@@ -418,9 +401,9 @@ footer .fineprint .copyright {
   padding: 12px 30px 12px 30px;
   margin: 0 5px;
   letter-spacing: 1px;
-  color: #6D6685;
+  color: #6d6685;
   background: white;
-  opacity: .95;
+  opacity: 0.95;
   font-size: 12px;
   line-height: 12px;
 }
@@ -440,7 +423,7 @@ footer .fineprint .copyright {
 }
 
 #analysis_start:hover {
-  color: #6D6685;
+  color: #6d6685;
   transition: all 0.1s linear;
 }
 
@@ -577,4 +560,8 @@ section .content_inner {
 .code_form_toggles {
   float: right;
   margin: 2px -6px 2px 2px;
+}
+
+.styled-background {
+  background-color: #FF9787 !important;;
 }
