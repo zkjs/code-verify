@@ -43,7 +43,7 @@ function requestAndUpdate(task) {
       
         $("#loading_main").hide();
       
-        $("#stat").text(data.stat);
+        $("#stat").html(data.stat);
         if (results[0]) {
           $("#pattern_result_arrows").addClass("matched");
           $("#call_stack_label").text(results[0].description);
