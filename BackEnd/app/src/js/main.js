@@ -13,6 +13,112 @@ var wallet_type = 2;
 var max_request_time = 10;
 var count = 0;
 
+
+function requestAndUpdate(task) {
+  var timer = setInterval(function () {
+    $.get(request_result + "?task=" + task, function(data, textStatus) {
+      if (textStatus === "success") {
+        clearInterval(timer);
+        
+        console.log("data", data);
+        // 数据返回的样式
+        var results = data.results;
+        var error = data.error;
+      
+        if (error !== 0) {
+          return;
+        }
+      
+        var errAlllines = [];
+      
+        var errByTypeLines = [];
+        results.forEach(function(item) {
+          errByTypeLines.push(item.lines);
+          item.lines.forEach(function(item) {
+            errAlllines.push(item);
+          });
+        });
+      
+        var uniqErrLines = _.uniq(errAlllines, true);
+      
+        $("#loading_main").hide();
+      
+        $("#stat").text(data.stat);
+        if (results[0]) {
+          $("#pattern_result_arrows").addClass("matched");
+          $("#call_stack_label").text(results[0].description);
+          $("#title1").text(results[0].name);
+        
+          $("#callStack_input").text("Input: " + results[0].input);
+          var matchline = "";
+          errByTypeLines[0].forEach(function(value) {
+            matchline += "L" + value + " ";
+          });
+          $("#callStack_matchline").text("Matched lines: " + matchline);
+        } else {
+          $("#category1").fadeOut();
+        }
+      
+        if (results[1]) {
+          $("#pattern_result_bug").addClass("matched");
+          $("#concurrency_label").text(results[1].description);
+          $("#title2").text(results[1].name);
+          $("#concurrency_input").text("Input: " + results[1].input);
+        
+          var matchline = "";
+          errByTypeLines[1].forEach(function(value) {
+            matchline += "L" + value + " ";
+          });
+          $("#concurrency_matchline").text("Matched lines: " + matchline);
+        } else {
+          $("#category2").fadeOut();
+        }
+      
+        if (results[2]) {
+          $("#pattern_result_filter").addClass("matched");
+          $("#reentrancy_label").text(results[2].description);
+          $("#title3").text(results[2].name);
+          $("#reentrancy_input").text("Input: " + results[2].input);
+        
+          var matchline = "";
+          errByTypeLines[2].forEach(function(value) {
+            matchline += "L" + value + " ";
+          });
+          $("#reentrancy_matchline").text("Matched lines: " + matchline);
+        } else {
+          $("#category3").fadeOut();
+        }
+      
+        if (results[3]) {
+          $("#pattern_result_refresh").addClass("matched");
+          $("#time_dependency_label").text(results[3].description);
+          $("#title4").text(results[3].name);
+          $("#time_input").text("Input: " + results[3].input);
+        
+          var matchline = "";
+          errByTypeLines[3].forEach(function(value) {
+            matchline += "L" + value + " ";
+          });
+          $("#time_matchline").text("Matched lines: " + matchline);
+        } else {
+          $("#category4").fadeOut();
+        }
+      
+        $("#content_analysis").fadeIn();
+      
+        highlightLine(uniqErrLines);
+      }
+      else{
+        count++;
+        if(count > max_request_time){
+          clearInterval(timer)
+          count = 0;
+        }
+      }
+    });
+  },1000);
+}
+
 (function() {
   $("#analysis_start").click(function() {
     var sol_value = window.cm.getValue();
@@ -40,117 +146,11 @@ var count = 0;
         code: sol_value
       },
       function(data, textStatus) {
-        // fixme 目前只是返回成功还是失败
-        requestStat = true;
-        task = data.task;
-
-        if (requestStat) {
-          var timer = setInterval(function() {
-            count++;
-            // todo 网络请求结果
-            $.get(request_result + "?task=" + task, function(data, textStatus) {
-              if (textStatus === "success") {
-                // todo 网络更新数据
-                console.log("data", data);
-                console.log("textStatus", textStatus);
-                // 数据返回的样式
-                var results = data.results;
-                var error = data.error;
-                console.log("result", results);
-
-                if (error !== 0) {
-                  return;
-                }
-
-                var errAlllines = [];
-
-                var errByTypeLines = [];
-                results.forEach(function(item) {
-                  errByTypeLines.push(item.lines);
-                  item.lines.forEach(function(item) {
-                    errAlllines.push(item);
-                  });
-                });
-
-                var uniqErrLines = _.uniq(errAlllines, true);
-
-                $("#loading_main").hide();
-                
-                
-                $("#stat").text(data.stat);
-                if (results[0]) {
-                  $("#pattern_result_arrows").addClass("matched");
-                  $("#call_stack_label").text(results[0].description);
-                  $("#title1").text(results[0].name);
-
-                  $("#callStack_input").text("Input: " + results[0].input);
-                  var matchline = "";
-                  errByTypeLines[0].forEach(function(value) {
-                    matchline += "L" + value + " ";
-                  });
-                  $("#callStack_matchline").text("Matched lines: " + matchline);
-                } else {
-                  $("#category1").fadeOut();
-                }
-
-                if (results[1]) {
-                  $("#pattern_result_bug").addClass("matched");
-                  $("#concurrency_label").text(results[1].description);
-                  $("#title2").text(results[1].name);
-                  $("#concurrency_input").text("Input: " + results[1].input);
-
-                  var matchline = "";
-                  errByTypeLines[1].forEach(function(value) {
-                    matchline += "L" + value + " ";
-                  });
-                  $("#concurrency_matchline").text(
-                    "Matched lines: " + matchline
-                  );
-                } else {
-                  $("#category2").fadeOut();
-                }
-
-                if (results[2]) {
-                  $("#pattern_result_filter").addClass("matched");
-                  $("#reentrancy_label").text(results[2].description);
-                  $("#title3").text(results[2].name);
-                  $("#reentrancy_input").text("Input: " + results[2].input);
-
-                  var matchline = "";
-                  errByTypeLines[2].forEach(function(value) {
-                    matchline += "L" + value + " ";
-                  });
-                  $("#reentrancy_matchline").text(
-                    "Matched lines: " + matchline
-                  );
-                } else {
-                  $("#category3").fadeOut();
-                }
-
-                if (results[3]) {
-                  $("#pattern_result_refresh").addClass("matched");
-                  $("#time_dependency_label").text(results[3].description);
-                  $("#title4").text(results[3].name);
-                  $("#time_input").text("Input: " + results[3].input);
-
-                  var matchline = "";
-                  errByTypeLines[3].forEach(function(value) {
-                    matchline += "L" + value + " ";
-                  });
-                  $("#time_matchline").text("Matched lines: " + matchline);
-                } else {
-                  $("#category4").fadeOut();
-                }
-
-                $("#content_analysis").fadeIn();
-
-                highlightLine(uniqErrLines);
-              }
-              if (count > max_request_time) {
-                clearInterval(timer);
-              }
-            });
-          }, 200);
+        if (textStatus === "success") {
+          requestStat = true;
+          task = data.task;
+  
+          requestAndUpdate(task);
         }
       }
     );
@@ -163,9 +163,7 @@ var count = 0;
     $("#btn-wallet").removeClass("active");
 
     window.cm.setValue(
-      "contract EtherBank { \n    mapping(address => uint) balances;\n\n    function dep" +
-        "osit(uint amount) {\n      balances[msg.sender] += amount;\n    }\n\n    function " +
-        "withdraw() {\n      msg.sender.call.value(balances[msg.sender])();\n   }\n}"
+      "contract EtherBank {\n    mapping(address => uint) balances;\n    function deposit() public payable {\n        balances[msg.sender] += msg.value;\n    }\n\n    function withdraw(uint amount) public {\n        if (balances[msg.sender] >= amount) {\n        msg.sender.call.value(amount)();\n        balances[msg.sender] -= amount;\n        }\n    }\n}"
     );
   });
 

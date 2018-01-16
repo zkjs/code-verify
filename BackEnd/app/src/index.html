@@ -349,7 +349,7 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
   var cm = CodeMirror(document.getElementById("code-solidity"), {
-    value: "contract EtherBank { \n    mapping(address => uint) balances;\n    function deposit(uint amount) {\n      balances[msg.sender] += amount;\n  }\n\n    function withdraw() {\n      msg.sender.call.value(balances[msg.sender])();\n      balances[msg.sender] = 0;\n  }\n\n}",
+    value: 'contract EtherBank {\n    mapping(address => uint) balances;\n    function deposit() public payable {\n        balances[msg.sender] += msg.value;\n    }\n\n    function withdraw(uint amount) public {\n        if (balances[msg.sender] >= amount) {\n        msg.sender.call.value(amount)();\n        balances[msg.sender] -= amount;\n        }\n    }\n}',
     mode: "javascript",
     smartIndent: true,
     lineNumbers: true,
