@@ -362,7 +362,7 @@
     	console.log('errorline',value);
       //cm.markText({line:value,ch:0},{line:value,ch:90},{className: "styled-background"});
 
-      cm.doc.addLineClass(value,'background','styled-background');
+      cm.doc.addLineClass(value-1,'background','styled-background');
 
     })
   }
