@@ -120,7 +120,11 @@
 
   <section class="content_wrap" id="content_analysis" style="display: none">
     <div class="content_block">
-      <p style="padding-top: 26px" id="stat"></p>
+        <span class="glyphicon glyphicon-chevron-down" aria-hidden="true" data-toggle="collapse" data-target="#stat" style="margin-top:'15px'"></span>
+        <!-- <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#stat">简单的折叠</button> -->
+      <p style="padding-top: 26px" id="stat" align = "left" class="collapse">
+
+      </p>
       <div class="content_inner clearfix">
         <div class="trim_top"></div>
         <h2>Anaysis Results</h2>
@@ -131,7 +135,7 @@
               <div id="pattern_table">
                 <div class="pattern_category" id="category1">
                   <img class="pattern_category_logo" src="./img/freepik-arrows.svg" alt="">
-                  <div class="clearfix">
+                  <div class="clearfix" style="width:100">
                     <h4 id="title1">Call Stack</h4>
                     <div class="pattern_result">
                       <table>
@@ -146,9 +150,11 @@
                             <!--<td class="pattern_info" data-toggle="modal" data-target="#callstack_modal">Info</td>-->
                           </tr>
                         </tbody>
-                      </table>
+                      </table>                     
                       <div id="callStack_matchline">Matched lines:</div>
-                      <div id="callStack_input"></div>
+                      <div>
+                          <span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="collapse" data-target="#callStack_input">&nbsp<span id="callStack_input" class="collapse" style="float:right"></span></span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -170,8 +176,11 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div id="concurrency_matchline">Matched lines:</div>
-                      <div id="concurrency_input">abase64stringdataasinputdata</div>
+                      <div>
+                          <div id="concurrency_matchline">Matched lines:</div>
+                          <span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="collapse" data-target="#concurrency_input"></span>
+                      </div>
+                      <div id="concurrency_input" class="collapse"></div>
                     </div>
                   </div>
                 </div>
@@ -193,8 +202,11 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div id="reentrancy_matchline">Matched lines:</div>
-                      <div id="reentrancy_input">abase64stringdataasinputdata</div>
+                      <div>
+                          <div id="reentrancy_matchline">Matched lines:</div>
+                          <span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="collapse" data-target="#reentrancy_input"></span>
+                      </div>
+                      <div id="reentrancy_input" class="collapse"></div>
                     </div>
                   </div>
                 </div>
@@ -216,8 +228,11 @@
                           </tr>
                         </tbody>
                       </table>
-                      <div id="time_matchline">Matched lines:</div>
-                      <div id="time_input">abase64stringdataasinputdata</div>
+                      <div>
+                          <div id="time_matchline">Matched lines:</div>
+                          <span class="glyphicon glyphicon-plus" aria-hidden="true" data-toggle="collapse" data-target="#time_input"></span>
+                      </div>
+                      <div id="time_input" class="collapse"></div>
                     </div>
                   </div>
                 </div>
