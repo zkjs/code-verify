@@ -13,24 +13,23 @@ var wallet_type = 2;
 var max_request_time = 10;
 var count = 0;
 
-
 function requestAndUpdate(task) {
-  var timer = setInterval(function () {
+  var timer = setInterval(function() {
     $.get(request_result + "?task=" + task, function(data, textStatus) {
       if (textStatus === "success") {
         clearInterval(timer);
-        
+
         console.log("data", data);
         // 数据返回的样式
         var results = data.results;
         var error = data.error;
-      
+
         if (error !== 0) {
           return;
         }
-      
+
         var errAlllines = [];
-      
+
         var errByTypeLines = [];
         results.forEach(function(item) {
           errByTypeLines.push(item.lines);
@@ -38,18 +37,18 @@ function requestAndUpdate(task) {
             errAlllines.push(item);
           });
         });
-      
+
         var uniqErrLines = _.uniq(errAlllines, true);
-      
+
         $("#loading_main").hide();
-      
+
         $("#stat").html(data.stat);
         if (results[0]) {
           $("#pattern_result_arrows").addClass("matched");
           $("#call_stack_label").text(results[0].description);
           $("#title1").text(results[0].name);
-        
-          $("#callStack_input").text("Input: " + results[0].input);
+
+          $("#callStack_input").html(results[0].stat);
           var matchline = "";
           errByTypeLines[0].forEach(function(value) {
             matchline += "L" + value + " ";
@@ -58,13 +57,13 @@ function requestAndUpdate(task) {
         } else {
           $("#category1").fadeOut();
         }
-      
+
         if (results[1]) {
           $("#pattern_result_bug").addClass("matched");
           $("#concurrency_label").text(results[1].description);
           $("#title2").text(results[1].name);
-          $("#concurrency_input").text("Input: " + results[1].input);
-        
+          $("#concurrency_input").html(results[1].stat);
+
           var matchline = "";
           errByTypeLines[1].forEach(function(value) {
             matchline += "L" + value + " ";
@@ -73,13 +72,13 @@ function requestAndUpdate(task) {
         } else {
           $("#category2").fadeOut();
         }
-      
+
         if (results[2]) {
           $("#pattern_result_filter").addClass("matched");
           $("#reentrancy_label").text(results[2].description);
           $("#title3").text(results[2].name);
-          $("#reentrancy_input").text("Input: " + results[2].input);
-        
+          $("#reentrancy_input").html(results[2].stat);
+
           var matchline = "";
           errByTypeLines[2].forEach(function(value) {
             matchline += "L" + value + " ";
@@ -88,13 +87,13 @@ function requestAndUpdate(task) {
         } else {
           $("#category3").fadeOut();
         }
-      
+
         if (results[3]) {
           $("#pattern_result_refresh").addClass("matched");
           $("#time_dependency_label").text(results[3].description);
           $("#title4").text(results[3].name);
-          $("#time_input").text("Input: " + results[3].input);
-        
+          $("#time_input").html(results[3].stat);
+
           var matchline = "";
           errByTypeLines[3].forEach(function(value) {
             matchline += "L" + value + " ";
@@ -103,20 +102,23 @@ function requestAndUpdate(task) {
         } else {
           $("#category4").fadeOut();
         }
-      
+
         $("#content_analysis").fadeIn();
-      
+
         highlightLine(uniqErrLines);
-      }
-      else{
+      } else {
         count++;
-        if(count > max_request_time){
-          clearInterval(timer)
+        if (count > max_request_time) {
+          clearInterval(timer);
           count = 0;
         }
       }
     });
-  },1000);
+  }, 1000);
+
+  $(document).ajaxError(function() {
+    clearInterval(timer);
+  });
 }
 
 (function() {
@@ -149,7 +151,7 @@ function requestAndUpdate(task) {
         if (textStatus === "success") {
           requestStat = true;
           task = data.task;
-  
+
           requestAndUpdate(task);
         }
       }
